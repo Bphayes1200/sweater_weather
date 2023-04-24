@@ -1,6 +1,6 @@
 class WeatherService
   def self.get_five_day_forecast_and_current(lat, lng)
-    x = get_url("/forecast.json?#{lat},#{lng}&days=5")
+    get_url("/forecast.json?#{lat},#{lng}&days=5")
   end
 
 
