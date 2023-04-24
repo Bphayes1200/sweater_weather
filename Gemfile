@@ -43,8 +43,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 gem 'simplecov', require: false, group: :test
-gem "webmock"
 gem "figaro"
 gem "faraday"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem "webmock"
+end
