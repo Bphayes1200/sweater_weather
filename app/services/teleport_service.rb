@@ -9,7 +9,11 @@ class TeleportService
   end
 
   def self.get_city_by_id(city)
-   get_url(get_city(city)[:_embedded][:"city:search-results"][0][:_links][:"city:item"][:href])[:_links][:"city:urban_area"][:href]
+    get_url(get_city(city)[:_embedded][:"city:search-results"][0][:_links][:"city:item"][:href])[:_links][:"city:urban_area"][:href]
+  end
+
+  def self.get_salaries(city)
+    get_url(get_city_by_id(city))
   end
   private
   
