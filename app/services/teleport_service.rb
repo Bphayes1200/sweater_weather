@@ -7,6 +7,10 @@ class TeleportService
   def self.get_city(city)
     get_url("/cities/?search=#{city}&limit=1")
   end
+
+  def self.get_city_by_id(city)
+   get_url(get_city(city)[:_embedded][:"city:search-results"][0][:_links][:"city:item"][:href])[:_links][:"city:urban_area"][:href]
+  end
   private
   
   def self.conn 
