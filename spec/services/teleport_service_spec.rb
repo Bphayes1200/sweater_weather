@@ -30,6 +30,6 @@ RSpec.describe TeleportService do
   it "will return jobs and salary ranges" do 
     chicago_salaries = TeleportService.get_salaries("Chicago")
   
-    expect(chicago_salaries[:salaries][0][:salary_percentiles]).to eq({:percentile_25=>53732.4997858553, :percentile_50=>67273.75507905365, :percentile_75=>84227.57438186172})
+    expect(chicago_salaries[0][:salary_percentiles]).to eq({:percentile_25=>53732.4997858553, :percentile_50=>67273.75507905365, :percentile_75=>84227.57438186172})
   end
 end

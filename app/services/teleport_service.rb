@@ -13,7 +13,7 @@ class TeleportService
   end
 
   def self.get_salaries(city)
-    get_url(get_city_by_id(city))
+    x = get_url(get_city_by_id(city))[:salaries]
   end
   private
   
