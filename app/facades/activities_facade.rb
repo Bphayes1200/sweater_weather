@@ -12,6 +12,9 @@ class ActivitiesFacade
       activities << ActivityService.get_activity_by_type("relaxation")
       activities << ActivityService.get_activity_by_type("cooking")
     end
-    activities
+    {
+      activities: activities,
+      weather: weather
+    }
   end
 end

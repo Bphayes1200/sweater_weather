@@ -34,7 +34,7 @@ RSpec.describe ActivitiesFacade do
   
 
     expect(weather[:current][:temp_f]).to eq(61.2)
-    expect(activities[0][:type]).to eq("relaxation")
-    expect(activities[1][:type]).to eq("recreational")
+    expect(activities[:activities][0][:type]).to eq("relaxation")
+    expect(activities[:activities][1][:type]).to eq("recreational")
   end
 end
