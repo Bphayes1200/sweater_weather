@@ -7,4 +7,8 @@ RSpec.describe User do
     it {should validate_presence_of(:password)}
     it {should validate_presence_of(:password_confirmation)}
   end 
+
+  describe "relationships" do 
+    it {should have_many :api_keys}
+  end 
 end
