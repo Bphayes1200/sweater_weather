@@ -16,7 +16,6 @@ RSpec.describe "Weather requests" do
 
     expect(response.status).to eq(200)
     data = JSON.parse(response.body, symbolize_names: true)
-    # require 'pry'; binding.pry
 
     expect(data[:data][:id]).to eq(nil)
     expect(data[:data][:attributes][:current_weather][:last_updated]).to eq("2023-04-24 14:30")
@@ -40,5 +39,9 @@ RSpec.describe "Weather requests" do
     expect(data[:data][:attributes][:hourly_weather][0][:temperature]).to eq(46.4)
     expect(data[:data][:attributes][:hourly_weather][0][:conditions]).to eq("Clear")
     expect(data[:data][:attributes][:hourly_weather][0][:icon]).to eq("//cdn.weatherapi.com/weather/64x64/night/113.png")
+
+    expect(data[:location]).to eq(nil)
+    expect(data[:data][:attributes][:daily_weather][0][:wind_mph]).to eq(nil)
+    expect(data[:data][:attributes][:hourly_weather][0][:will_it_snow]).to eq(nil)
   end
 end
