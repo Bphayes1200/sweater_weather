@@ -3,10 +3,9 @@ class Api::V1::UsersController < ApplicationController
     user = user_params
     user[:email] = user[:email].downcase
     new_user = User.create(user)
-    if new_user.save
-      ApiKey.create!(user_id: new_user.id, access_token: SecureRandom.hex)
-      render json: UserSerializer.new(new_user), status: 201
-    end
+    new_user.save!
+    ApiKey.create!(user_id: new_user.id, access_token: SecureRandom.hex)
+    render json: UserSerializer.new(new_user), status: 201
   end
 
   private

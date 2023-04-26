@@ -40,4 +40,24 @@ RSpec.describe "Road Trip request" do
   expect(data[:data][:attributes][:weather_at_eta][:temperature]).to eq(41.7)
   expect(data[:data][:attributes][:weather_at_eta][:condition]).to eq("Sunny")
   end
+
+  it "will return Unathorized if key does not exist" do 
+    user2 = User.create!(id: 2, email: "brian123@example.com", password: "password", password_confirmation: "password")
+    api_key2 = ApiKey.create!(user_id: user2.id )
+
+    road_trip_data = { 
+      "origin": "Denver,CO",
+      "destination": "Salt Lake City,UT",
+      "api_key": 12334
+      }
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    post "/api/v1/road_trip", headers: headers , params: JSON.generate(road_trip_data)
+
+    data = JSON.parse(response.body, symbolize_names: true)
+   
+    expect(data[:errors][0][:status]).to eq(401)
+    expect(data[:errors][0][:message]).to eq("Unauthorized Request")
+  end
 end
