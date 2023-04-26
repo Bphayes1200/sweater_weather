@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Weather requests" do 
   before :each do
     denver_five_day_forecast = File.read("spec/fixtures/denver_five_day_forecast.json")
-    stub_request(:get, "http://api.weatherapi.com/forecast.json?39.74001,-104.99202&days=5")
+    stub_request(:get, "http://api.weatherapi.com/v1/forecast.json?days=5&q=39.74001,-104.99202")
       .to_return(status: 200, body: denver_five_day_forecast)
 
     denver = File.read("spec/fixtures/denver_location.json")
