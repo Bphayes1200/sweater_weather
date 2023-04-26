@@ -10,6 +10,9 @@ class WeatherService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.get_specific_day_weather(location, date, hour)
+    get_url("/forecast.json?#{location[:lat]},#{location[:lng]}&dt=#{date}&hour=#{hour}")
+  end
 
  private
 
