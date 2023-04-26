@@ -11,7 +11,7 @@ RSpec.describe "Road Trip request" do
       .to_return(status: 200, body: salt_lake)
 
     sl_datetime = File.read("spec/fixtures/salt_lake_datetime_weather.json")
-    stub_request(:get, "http://api.weatherapi.com/forecast.json?40.76031,-111.88822&dt=2023-04-26&hour=10")
+    stub_request(:get, "http://api.weatherapi.com/v1/forecast.json?dt=2023-04-26&hour=13&q=40.76031,-111.88822")
       .to_return(status: 200, body: sl_datetime)
 
     @user = User.create!(id: 1, email: "brian@example.com", password: "password", password_confirmation: "password")

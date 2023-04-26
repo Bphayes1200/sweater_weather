@@ -28,7 +28,7 @@ RSpec.describe "User Requests" do
 
   it "wont create a new user if passwords do not match" do 
     user_data = { 
-      "email": "whatever@example.com",
+      "email": "whoever@example.com",
       "password": "password",
       "password_confirmation": "hi"
       }
