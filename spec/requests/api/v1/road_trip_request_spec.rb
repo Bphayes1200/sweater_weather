@@ -2,14 +2,26 @@ require "rails_helper"
 
 RSpec.describe "Road Trip request" do 
   before :each do 
-    @user = User.create(id: 1, email: "brian@example.com", password: "password")
-    @api_key = ApiKey.create(access_token: 123456789, user_id: @user.id )
+    directions_den_to_slc = File.read("spec/fixtures/directions_from_denver_to_salt_lake.json")
+    stub_request(:get, "https://www.mapquestapi.com/directions/v2/route?from=Denver,CO&to=Salt%20Lake%20City,UT")
+      .to_return(status: 200, body: directions_den_to_slc)
+
+    salt_lake = File.read("spec/fixtures/salt_lake_location.json")
+    stub_request(:get, "https://www.mapquestapi.com/geocoding/v1/address?location=Salt%20Lake%20City,UT")
+      .to_return(status: 200, body: salt_lake)
+
+    sl_datetime = File.read("spec/fixtures/salt_lake_datetime_weather.json")
+    stub_request(:get, "http://api.weatherapi.com/forecast.json?40.76031,-111.88822&dt=2023-04-26&hour=10")
+      .to_return(status: 200, body: sl_datetime)
+
+    @user = User.create!(id: 1, email: "brian@example.com", password: "password", password_confirmation: "password")
+    @api_key = ApiKey.create!(user_id: @user.id )
   end
   it "will return road trip data" do 
     road_trip_data = { 
       "origin": "Denver,CO",
       "destination": "Salt Lake City,UT",
-      "api_key": 123456789
+      "api_key": @api_key[:access_token]
       }
 
   headers = {"CONTENT_TYPE" => "application/json"}
@@ -17,5 +29,15 @@ RSpec.describe "Road Trip request" do
   post "/api/v1/road_trip", headers: headers , params: JSON.generate(road_trip_data)
 
   expect(response.status).to eq(200)
+  data = JSON.parse(response.body, symbolize_names: true)
+
+  expect(data[:data][:id]).to eq(nil)
+  expect(data[:data][:type]).to eq("road_trip")
+  expect(data[:data][:attributes][:start_city]).to eq("Denver,CO")
+  expect(data[:data][:attributes][:end_city]).to eq("Salt Lake City,UT")
+  expect(data[:data][:attributes][:travel_time]).to eq("07:40:26")
+  expect(data[:data][:attributes][:weather_at_eta][:datetime]).to eq("2023-04-26 08:00")
+  expect(data[:data][:attributes][:weather_at_eta][:temperature]).to eq(41.7)
+  expect(data[:data][:attributes][:weather_at_eta][:condition]).to eq("Sunny")
   end
 end
