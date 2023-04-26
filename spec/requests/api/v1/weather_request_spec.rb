@@ -6,9 +6,9 @@ RSpec.describe "Weather requests" do
     stub_request(:get, "http://api.weatherapi.com/forecast.json?39.74001,-104.99202&days=5")
       .to_return(status: 200, body: denver_five_day_forecast)
 
-      denver = File.read("spec/fixtures/denver_location.json")
-      stub_request(:get, "https://www.mapquestapi.com/address?location=Denver,CO")
-        .to_return(status: 200, body: denver)
+    denver = File.read("spec/fixtures/denver_location.json")
+    stub_request(:get, "https://www.mapquestapi.com/geocoding/v1/address?location=Denver,CO")
+      .to_return(status: 200, body: denver)
   end
 
   it "will return the weather forecast for a specific location" do
