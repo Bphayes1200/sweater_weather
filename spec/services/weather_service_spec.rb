@@ -23,8 +23,8 @@ RSpec.describe WeatherService do
 
   it "will get the weather for a specific day and time for a location" do 
     denver_lat_long = LocationService.get_latlong("Denver, CO")
-    formatted_date = Time.now.strftime("%F")
-    formatted_hour =  Time.now.strftime("%k")
+    formatted_date = "2023-04-25"
+    formatted_hour =  "22:00"
 
     denver_weather = WeatherService.get_specific_day_weather(denver_lat_long, formatted_date, formatted_hour)
 
