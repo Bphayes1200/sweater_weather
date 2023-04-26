@@ -1,0 +1,124 @@
+{
+  "location": {
+      "name": "Denver",
+      "region": "Colorado",
+      "country": "United States of America",
+      "lat": 39.74,
+      "lon": -104.99,
+      "tz_id": "America/Denver",
+      "localtime_epoch": 1682484462,
+      "localtime": "2023-04-25 22:47"
+  },
+  "current": {
+      "last_updated_epoch": 1682484300,
+      "last_updated": "2023-04-25 22:45",
+      "temp_c": 3.8,
+      "temp_f": 38.8,
+      "is_day": 0,
+      "condition": {
+          "text": "Light rain",
+          "icon": "//cdn.weatherapi.com/weather/64x64/night/296.png",
+          "code": 1183
+      },
+      "wind_mph": 5.6,
+      "wind_kph": 9.0,
+      "wind_degree": 180,
+      "wind_dir": "S",
+      "pressure_mb": 1016.0,
+      "pressure_in": 30.01,
+      "precip_mm": 0.0,
+      "precip_in": 0.0,
+      "humidity": 97,
+      "cloud": 100,
+      "feelslike_c": 0.1,
+      "feelslike_f": 32.3,
+      "vis_km": 16.0,
+      "vis_miles": 9.0,
+      "uv": 1.0,
+      "gust_mph": 11.4,
+      "gust_kph": 18.4
+  },
+  "forecast": {
+      "forecastday": [
+          {
+              "date": "2023-04-25",
+              "date_epoch": 1682380800,
+              "day": {
+                  "maxtemp_c": 17.6,
+                  "maxtemp_f": 63.7,
+                  "mintemp_c": 5.6,
+                  "mintemp_f": 42.1,
+                  "avgtemp_c": 10.2,
+                  "avgtemp_f": 50.4,
+                  "maxwind_mph": 19.2,
+                  "maxwind_kph": 31.0,
+                  "totalprecip_mm": 7.5,
+                  "totalprecip_in": 0.3,
+                  "totalsnow_cm": 0.0,
+                  "avgvis_km": 9.3,
+                  "avgvis_miles": 5.0,
+                  "avghumidity": 63.0,
+                  "daily_will_it_rain": 1,
+                  "daily_chance_of_rain": 88,
+                  "daily_will_it_snow": 0,
+                  "daily_chance_of_snow": 0,
+                  "condition": {
+                      "text": "Moderate rain",
+                      "icon": "//cdn.weatherapi.com/weather/64x64/day/302.png",
+                      "code": 1189
+                  },
+                  "uv": 3.0
+              },
+              "astro": {
+                  "sunrise": "06:08 AM",
+                  "sunset": "07:48 PM",
+                  "moonrise": "09:51 AM",
+                  "moonset": "12:59 AM",
+                  "moon_phase": "Waxing Crescent",
+                  "moon_illumination": "24"
+              },
+              "hour": [
+                  {
+                      "time_epoch": 1682481600,
+                      "time": "2023-04-25 22:00",
+                      "temp_c": 6.0,
+                      "temp_f": 42.8,
+                      "is_day": 0,
+                      "condition": {
+                          "text": "Overcast",
+                          "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+                          "code": 1009
+                      },
+                      "wind_mph": 9.8,
+                      "wind_kph": 15.8,
+                      "wind_degree": 64,
+                      "wind_dir": "ENE",
+                      "pressure_mb": 1015.0,
+                      "pressure_in": 29.96,
+                      "precip_mm": 0.0,
+                      "precip_in": 0.0,
+                      "humidity": 88,
+                      "cloud": 94,
+                      "feelslike_c": 2.9,
+                      "feelslike_f": 37.2,
+                      "windchill_c": 2.9,
+                      "windchill_f": 37.2,
+                      "heatindex_c": 6.0,
+                      "heatindex_f": 42.8,
+                      "dewpoint_c": 4.1,
+                      "dewpoint_f": 39.4,
+                      "will_it_rain": 0,
+                      "chance_of_rain": 0,
+                      "will_it_snow": 0,
+                      "chance_of_snow": 0,
+                      "vis_km": 10.0,
+                      "vis_miles": 6.0,
+                      "gust_mph": 11.4,
+                      "gust_kph": 18.4,
+                      "uv": 1.0
+                  }
+              ]
+          }
+      ]
+  }
+}

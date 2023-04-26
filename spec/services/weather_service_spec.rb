@@ -11,7 +11,7 @@ RSpec.describe WeatherService do
       .to_return(status: 200, body: denver)
       
       denver_weather_specific_datetime = File.read("spec/fixtures/denver_weather_specific_date_time.json")
-      stub_request(:get, "http://api.weatherapi.com/forecast.json?39.74001,-104.99202&dt=2023-04-26&hour=%200")
+      stub_request(:get, "http://api.weatherapi.com/forecast.json?39.74001,-104.99202&dt=2023-04-25&hour=22:00")
       .to_return(status: 200, body: denver_weather_specific_datetime)
   end
   it "will get the forecast for a city for the next 5 days" do 
