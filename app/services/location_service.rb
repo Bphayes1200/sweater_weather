@@ -5,12 +5,12 @@ class LocationService
   end
 
   def self.get_latlong(location)
-    request = get_url("/geocoding/v1/address?location=#{location}")
+    request = get_url("geocoding/v1/address?location=#{location}")
     request[:results][0][:locations][0][:latLng]
   end
 
   def self.get_directions(from, to)
-    get_url("/directions/v2/route?&from=#{from}&to=#{to}")
+    get_url("directions/v2/route?&from=#{from}&to=#{to}")
   end
   private
 

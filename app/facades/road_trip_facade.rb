@@ -11,7 +11,7 @@ class RoadTripFacade
       arrival_time_at_location = Time.now + trip[:route][:time]
       formatted_date = arrival_time_at_location.strftime("%F")
       formatted_hour =  arrival_time_at_location.strftime("%k")
-
+      
       arrival_weather_at_location = WeatherFacade.get_datetime_weather(destination_lat_lng, formatted_date, formatted_hour)
       {
         start_city: @origin, 
